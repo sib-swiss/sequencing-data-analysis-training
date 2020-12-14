@@ -1,0 +1,50 @@
+site_name: NGS - Quality control, Alignment, Visualisation
+nav:
+    - Home: index.md
+    - Precourse preparations: precourse.md
+    - Course schedule: course_schedule.md
+    - Day 1:
+      - Introduction: day1/intro.md
+      - Sequencing technologies: day1/sequencing_technologies.md
+      - Setup + UNIX refresher: day1/server_login.md
+      - Quality control: day1/quality_control.md
+      - Read alignment: day1/read_alignment.md
+    - Day 2:
+      - File types: day2/file_types.md
+      - Samtools: day2/samtools.md
+      - IGV and visualisation: day2/igv_visualisation.md
+      - Group work - organisation: day2/group_work.md
+    - Day 3: day3.md
+
+theme:
+  name: material
+  logo: assets/images/SIB_logo.svg
+  favicon: assets/images/SIB_logo.svg
+  custom_dir: overrides
+
+# Repository
+repo_name: sib-swiss/NGS-introduction-training
+repo_url: https://github.com/sib-swiss/NGS-introduction-training
+edit_uri: ""
+
+markdown_extensions:
+  - abbr
+  - def_list
+  - footnotes
+  - tables
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - sane_lists
+  - smarty
+  - toc
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
