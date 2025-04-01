@@ -18,7 +18,7 @@
 
 ## Exercises
 
-### Download and evaluate an E. coli dataset
+### Download and evaluate an _E. coli_ dataset
 
 Check out the dataset at [SRA](https://www.ncbi.nlm.nih.gov/sra/?term=SRR519926).
 

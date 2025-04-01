@@ -1,4 +1,4 @@
-site_name: NGS - Quality control, Alignment, Visualisation
+site_name: Introduction to Sequencing Data Analysis
 nav:
     - Home: index.md
     - Precourse preparations: precourse.md
