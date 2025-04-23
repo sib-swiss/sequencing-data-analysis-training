@@ -25,7 +25,7 @@ theme:
 
 # Repository
 repo_name: sib-swiss/NGS-introduction-training
-repo_url: https://github.com/sib-swiss/NGS-introduction-training
+repo_url: https://github.com/sib-swiss/sequencing-data-analysis-training
 edit_uri: edit/main/docs/
 
 markdown_extensions:
