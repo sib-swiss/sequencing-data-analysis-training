@@ -39,4 +39,4 @@
 | block 3 	| 1:30 PM  	| 3:00 PM  	| [Group work](group_work.md)     | |
 |         	| 3:00 PM  	| 3:30 PM  	| BREAK                               	| |
 | block 4  	| 3:30 PM 	| 5:00 PM 	| Presentations 	| |
-| information   | 5:00 PM       | 5:15 PM       | [Post course information](docs/assets/pdf/09_post_course.pdf)    | Deepak Tanwar |
+| information   | 5:00 PM       | 5:15 PM       | [Post course information](assets/pdf/09_post_course.pdf)    | Deepak Tanwar |
