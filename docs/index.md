@@ -1,30 +1,31 @@
-# 
+# Introduction to Sequencing Data Analysis
 
-Here you can find the course material for the [SIB](https://www.sib.swiss/) course 'NGS - Quality control, Alignment, Visualisation'. You can follow this course enrolled (check out [upcoming training courses](https://www.sib.swiss/training/upcoming-training-courses)) or in your own time. 
+Here you can find the course material for the [SIB](https://www.sib.swiss/) course 'Introduction to Sequencing Data Analysis'. You can follow this course enrolled (check out [upcoming training courses](https://www.sib.swiss/training/upcoming-training-courses)) or in your own time. 
+
+## Learning outcomes
 
 After this course, you will be able to:
 
-* Understand the basics of the different NGS technologies
-* Perform quality control for better downstream analysis
-* Align reads to a reference genome
-* Visualize the output
+* Distinguish advantages and limitations of HTS technologies, including their applications in omics
+* Select appropriate HTS technologies based on experimental design needs
+* Apply quality control (QC) measures to HTS datasets to ensure data integrity and reliability for downstream analysis
+* Describe the concept and purpose of sequence alignment and differentiate between global and local alignment strategies
+* Perform read alignment to a reference genome using appropriate tools
+* Analyze alignment outputs to assess accuracy and identify potential issues
+* Generate visualizations of HTS data using tools such as IGV
+* Evaluate visualized outputs to interpret biological insights and validate results
 
 <figure>
     <img src="assets/images/alignment_infograph.png" width="600"/>
 </figure>
 
 ## Teachers
-
 - Deepak Tanwar [:custom-orcid:](https://orcid.org/0000-0001-8036-1989)
 - Frédéric Burdet [:custom-orcid:](https://orcid.org/0000-0002-2923-827X)
 
-## Authors
-
-- Deepak Tanwar [:custom-orcid:](https://orcid.org/0000-0001-8036-1989)
+### Previous Teachers
 - Frédéric Burdet [:custom-orcid:](https://orcid.org/0000-0002-2923-827X)
 - Geert van Geest [:custom-orcid:](https://orcid.org/0000-0002-1561-078X)
-- Patricia Palagi [:custom-orcid:](https://orcid.org/0000-0001-9062-6303)
-
 
 ## License & copyright
 
