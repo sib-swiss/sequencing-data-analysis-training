@@ -86,6 +86,8 @@ The BAM files containing these reads for the cancer cell line and the matched no
 
 For these exercises, you can **choose** between **IGV** and the **UCSC Genome Browser**. Both tools have their strengths and weaknesses. IGV is a desktop application that you need to install on your computer, while the UCSC Genome Browser is web-based and runs in your browser.
 
+If you choose IGV, download the BAM file and its index file to your computer. If you choose the UCSC Genome Browser, you don't need to download any files, you can directly provide the URL to the BAM file.
+
 === "IGV"
 
     A lot of model-organism genomes are built-in IGV. Select the human genome version hg19 from the drop down menu:
