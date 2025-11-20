@@ -11,7 +11,7 @@
 
 ## Material
 
-Presentation on the UCSC genome browser (after the exercises):
+Presentation on the UCSC genome browser (previous course):
 
 [:fontawesome-solid-file-pdf: Download the presentation](../assets/pdf/08_UCSC_genome_browser.pdf){: .md-button }
 
@@ -84,7 +84,9 @@ The BAM files containing these reads for the cancer cell line and the matched no
 * [`HCC1143.normal.21.19M-20M.bam`](https://ngs-introduction-training.s3.eu-central-1.amazonaws.com/HCC1143.normal.21.19M-20M.bam)
 * [`HCC1143.normal.21.19M-20M.bam.bai`](https://ngs-introduction-training.s3.eu-central-1.amazonaws.com/HCC1143.normal.21.19M-20M.bam.bai)
 
-For these exercises, you can choose between IGV and the UCSC Genome Browser. Both tools have their strengths and weaknesses. IGV is a desktop application that you need to install on your computer, while the UCSC Genome Browser is web-based and runs in your browser.
+For these exercises, you can **choose** between **IGV** and the **UCSC Genome Browser**. Both tools have their strengths and weaknesses. IGV is a desktop application that you need to install on your computer, while the UCSC Genome Browser is web-based and runs in your browser.
+
+If you choose IGV, download the BAM file and its index file to your computer. If you choose the UCSC Genome Browser, you don't need to download any files, you can directly provide the URL to the BAM file.
 
 === "IGV"
 
