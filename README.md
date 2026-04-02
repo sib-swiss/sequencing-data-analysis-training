@@ -25,3 +25,10 @@ mkdocs serve
 ```
 
 Check it out with your browser at [http://localhost:8000/](http://localhost:8000/)
+
+Build the website
+```bash
+pip install mike
+
+mike deploy -pu 2026.4 latest
+```
