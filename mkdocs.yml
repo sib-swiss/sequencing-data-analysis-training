@@ -1,4 +1,4 @@
-site_name: Introduction to Sequencing Data Analysis
+mike deploysite_name: Introduction to Sequencing Data Analysis
 nav:
     - Home: index.md
     - Precourse preparations: precourse.md
