@@ -82,7 +82,7 @@
     -e PGID=1000 \
     -e DEFAULT_WORKSPACE=/config/project \
     -v $PWD:/config/project \
-    geertvangeest/ngs-introduction-vscode:latest
+    sibswiss/training-introsequencing-vscode
     ```
 
     If this command has run successfully, navigate in your browser to [http://localhost:8443](http://localhost:8443).
