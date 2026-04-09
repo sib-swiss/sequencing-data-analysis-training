@@ -676,6 +676,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#1-insert-size-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Insert Size Mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-genetic-drift-in-lab-strains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Genetic Drift in Lab Strains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-read-dovetailing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Read &ldquo;Dovetailing&rdquo;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mismatched-library-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mismatched Library Orientation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-repetitive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Repetitive Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-trimmomatic-for-synchronization-and-artifact-removal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Trimmomatic for Synchronization and Artifact Removal
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -942,6 +1008,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#1-insert-size-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Insert Size Mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-genetic-drift-in-lab-strains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Genetic Drift in Lab Strains
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-read-dovetailing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Read &ldquo;Dovetailing&rdquo;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mismatched-library-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mismatched Library Orientation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-repetitive-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Repetitive Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-trimmomatic-for-synchronization-and-artifact-removal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Trimmomatic for Synchronization and Artifact Removal
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1033,6 +1165,57 @@ bowtie2<span class="w"> </span><span class="se">\</span>
 &gt;<span class="w"> </span><span class="nv">$ALIGNED_DIR</span>/SRR519926.sam
 </code></pre></div>
 <p>We&rsquo;ll go deeper into alignment statistics later on, but <code>bowtie2</code> writes already some statistics to stdout. General alignment rates seem okay, but there are quite some non-concordant alignments. That doesn&rsquo;t sound good. Check out the explanation about concordance at the <a href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#concordant-pairs-match-pair-expectations-discordant-pairs-dont">bowtie2 manual</a>. Can you guess what the reason could be?</p>
+<details class="done">
+<summary>Answer</summary>
+<p>In <a href="https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml"><code>Bowtie2</code></a>, a pair of reads is marked as discordant when both mates map uniquely to the reference but fail to meet the &ldquo;concordant&rdquo; criteria, which are defined by orientation, distance, and relative position [1, 2]. 
+Based on bioinformatics course materials and community consensus (e.g., <a href="https://www.biostars.org/p/78446/">Biostars</a>, <a href="https://www.seqanswers.com/forum/bioinformatics/bioinformatics-aa/17856-bowtie-2-explanation-of-the-pair-end-mode-report">SeqAnswers</a>), the following are the primary reasons for high discordance rates in <em>E. coli</em> K-12 MG1655 data:</p>
+<h2 id="1-insert-size-mismatch">1. Insert Size Mismatch</h2>
+<p>Bowtie 2 uses a default <code>maximum fragment length</code> (<code>-X</code>) of <code>500 bp</code>. [2,3] </p>
+<ul>
+<li><strong>The Issue:</strong> If your DNA library was prepared with larger fragments (e.g., <code>600–800 bp</code>), <code>Bowtie2</code> will mark these as discordant because they exceed the <code>500 bp</code> limit.</li>
+<li><strong>Fix:</strong> Adjust the <code>maximum fragment size</code> using <code>-X</code> <int> (e.g., <code>-X 1000</code>). [2, 3] </li>
+</ul>
+<h2 id="2-genetic-drift-in-lab-strains">2. Genetic Drift in Lab Strains</h2>
+<p>The official MG1655 reference (<code>U00096.3</code>) may not perfectly match your specific lab sample. [4, 5] </p>
+<ul>
+<li><strong>Structural Variation:</strong> Laboratory <em>E. coli</em> K-12 strains frequently accumulate Inversions, Deletions, or Insertion Sequence (IS) element movements.</li>
+<li><strong>The Result:</strong> If a segment of the genome is inverted in your sample compared to the reference, the mates will map in the wrong orientation (e.g., Forward-Forward), causing them to be flagged as discordant. [6, 7, 8] </li>
+</ul>
+<h2 id="3-read-dovetailing">3. Read &ldquo;Dovetailing&rdquo;</h2>
+<p>&ldquo;Dovetailing&rdquo; occurs when one mate alignment extends past the beginning of the other (common in libraries with very short DNA fragments). [2, 3] </p>
+<ul>
+<li><strong>The Issue:</strong> By default, <code>Bowtie2</code> considers dovetailing to be non-concordant.</li>
+<li><strong>Fix:</strong> Add the <code>--dovetail</code> flag to your command to allow these reads to be considered concordant. [2,3] </li>
+</ul>
+<h2 id="4-mismatched-library-orientation">4. Mismatched Library Orientation</h2>
+<p>Standard Illumina sequencing uses the Forward-Reverse (<code>--fr</code>) orientation. [2,6] </p>
+<ul>
+<li><strong>The Issue:</strong> If your library protocol uses a different orientation (e.g., <code>--rf</code> or <code>--ff</code>) and you did not specify it, the software will mark almost every correctly mapped pair as discordant.</li>
+<li><strong>Fix:</strong> Verify your library type and use the appropriate flag (<code>--fr</code>, <code>--rf</code>, or <code>--ff</code>). [1, 3, 6] </li>
+</ul>
+<h2 id="5-repetitive-elements">5. Repetitive Elements</h2>
+<p>The <em>E. coli</em> genome contains repetitive regions, such as rRNA operons. [9] </p>
+<ul>
+<li><strong>The Issue:</strong> If each mate of a pair maps uniquely but to different copies of a repeat (e.g., one to rrnA and one to rrnB), the resulting distance or orientation will not match the reference expectations, leading to a discordant flag. [10] </li>
+</ul>
+<h2 id="6-trimmomatic-for-synchronization-and-artifact-removal">6. <code>Trimmomatic</code> for Synchronization and Artifact Removal</h2>
+<p>Using <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4103590/"><code>Trimmomatic</code></a> is often more effective than tools like <code>fastp</code> for reducing discordance because of its strict handling of paired-end constraints.</p>
+<ul>
+<li><strong>Superior &ldquo;Dovetail&rdquo; Prevention:</strong> <code>Trimmomatic</code>&rsquo;s <code>Palindrome mode</code> aligns the two mates against each other to identify and remove adapter sequences with high precision. This eliminates the &ldquo;overhangs&rdquo; that cause <code>Bowtie2</code> to flag pairs as discordant.</li>
+<li><strong>Guarding Physical Distance:</strong> By using <code>SLIDINGWINDOW</code> to aggressively trim low-quality ends, <code>Trimmomatic</code> ensures that <code>Bowtie2</code> works with high-confidence bases, preventing &ldquo;noisy&rdquo; read ends from being mapped to incorrect, distant locations.</li>
+<li>__Absolute Synchronization:_ <code>Trimmomatic</code>&rsquo;s <code>PE</code> mode strictly maintains read order. If a mate is discarded, its partner is moved to an &ldquo;unpaired&rdquo; file. This prevents the &ldquo;desynchronization&rdquo; often seen in automated tools, where a shift in read order causes 100% discordance.</li>
+</ul>
+<p>[1] <a href="https://gensoft.pasteur.fr/docs/bowtie2/2.5.4/"><code>Bowtie2</code> Manual</a><br />
+[2] <a href="https://www.biostars.org/p/78446/"><code>Bowtie2</code> Output, Concordant Vs. Discordant Mapping??</a><br />
+[3] <a href="https://chipster.csc.fi/manual/bowtie2-paired-end-with-index-building.html"><code>Bowtie2</code> for paired-end reads and own genome</a><br />
+[4] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3256642/">Newly Identified Genetic Variations in Common <em>Escherichia coli</em> MG1655 Stock Cultures</a><br />
+[5] <a href="https://biocyc.org/ECOLI/organism-summary"><em>Escherichia coli</em> K-12 substr. MG1655</a><br />
+[6] <a href="https://www.biostars.org/p/204218/"><code>bowtie</code> <code>--fr</code>/<code>--rf</code>/<code>--ff</code> reporting</a><br />
+[7] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9997739/">Laboratory strains of <em>Escherichia coli</em> K-12: things are seldom what they seem</a><br />
+[8] <a href="https://www.genome.wisc.edu/sequencing/k12.htm"><em>Escherichia coli</em> K-12 MG1655 sequence and annotations U00096.3 (aka version 3)</a><br />
+[9] <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1325200/"><em>Escherichia coli</em> K-12: a cooperatively developed annotation snapshot—2005</a><br />
+[10] <a href="https://www.revvity.com/blog/discordant-mapping-r1-and-r2-wgs-studies-understanding-illumina-paired-end-sequencing">Discordant mapping of <code>R1</code> and <code>R2</code> in WGS studies: understanding Illumina paired-end sequencing.</a>  </p>
+</details>
 
 
 
