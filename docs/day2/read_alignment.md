@@ -120,7 +120,7 @@ We'll go deeper into alignment statistics later on, but `bowtie2` writes already
 
     * __Superior "Dovetail" Prevention:__ `Trimmomatic`'s `Palindrome mode` aligns the two mates against each other to identify and remove adapter sequences with high precision. This eliminates the "overhangs" that cause `Bowtie2` to flag pairs as discordant.
     * __Guarding Physical Distance:__ By using `SLIDINGWINDOW` to aggressively trim low-quality ends, `Trimmomatic` ensures that `Bowtie2` works with high-confidence bases, preventing "noisy" read ends from being mapped to incorrect, distant locations.
-    * __Absolute Synchronization:_ `Trimmomatic`'s `PE` mode strictly maintains read order. If a mate is discarded, its partner is moved to an "unpaired" file. This prevents the "desynchronization" often seen in automated tools, where a shift in read order causes 100% discordance.
+    * __Absolute Synchronization:__ `Trimmomatic`'s `PE` mode strictly maintains read order. If a mate is discarded, its partner is moved to an "unpaired" file. This prevents the "desynchronization" often seen in automated tools, where a shift in read order causes 100% discordance.
     
 
     [1] [`Bowtie2` Manual](https://gensoft.pasteur.fr/docs/bowtie2/2.5.4/)  
