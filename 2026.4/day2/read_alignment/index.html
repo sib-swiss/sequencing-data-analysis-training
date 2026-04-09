@@ -1203,7 +1203,7 @@ Based on bioinformatics course materials and community consensus (e.g., <a href=
 <ul>
 <li><strong>Superior &ldquo;Dovetail&rdquo; Prevention:</strong> <code>Trimmomatic</code>&rsquo;s <code>Palindrome mode</code> aligns the two mates against each other to identify and remove adapter sequences with high precision. This eliminates the &ldquo;overhangs&rdquo; that cause <code>Bowtie2</code> to flag pairs as discordant.</li>
 <li><strong>Guarding Physical Distance:</strong> By using <code>SLIDINGWINDOW</code> to aggressively trim low-quality ends, <code>Trimmomatic</code> ensures that <code>Bowtie2</code> works with high-confidence bases, preventing &ldquo;noisy&rdquo; read ends from being mapped to incorrect, distant locations.</li>
-<li>__Absolute Synchronization:_ <code>Trimmomatic</code>&rsquo;s <code>PE</code> mode strictly maintains read order. If a mate is discarded, its partner is moved to an &ldquo;unpaired&rdquo; file. This prevents the &ldquo;desynchronization&rdquo; often seen in automated tools, where a shift in read order causes 100% discordance.</li>
+<li><strong>Absolute Synchronization:</strong> <code>Trimmomatic</code>&rsquo;s <code>PE</code> mode strictly maintains read order. If a mate is discarded, its partner is moved to an &ldquo;unpaired&rdquo; file. This prevents the &ldquo;desynchronization&rdquo; often seen in automated tools, where a shift in read order causes 100% discordance.</li>
 </ul>
 <p>[1] <a href="https://gensoft.pasteur.fr/docs/bowtie2/2.5.4/"><code>Bowtie2</code> Manual</a><br />
 [2] <a href="https://www.biostars.org/p/78446/"><code>Bowtie2</code> Output, Concordant Vs. Discordant Mapping??</a><br />
